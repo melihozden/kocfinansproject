@@ -7,17 +7,17 @@ import java.util.UUID;
 
 public interface CustomerDao {
 
-    int insertCustomer(UUID id, Customer customer) ;
+    int insertCustomer(UUID customerId, Customer customer) ;
 
     default int insertCustomer(Customer customer){
-        UUID id = UUID.randomUUID();
-        return insertCustomer(id,customer);
+        UUID customerId = UUID.randomUUID();
+        return insertCustomer(customerId,customer);
     }
 
-    String checkCustomer(UUID uuid);
+    String checkCustomer(UUID customerId);
 
 
-    Customer selectCustomerById(UUID id);
+    Customer selectCustomerById(UUID customerId);
 
     List<Customer> selectAllCustomers();
 }

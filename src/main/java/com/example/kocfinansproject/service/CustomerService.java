@@ -16,7 +16,7 @@ public class CustomerService {
     private final CustomerDao customerDao ;
 
     @Autowired
-    public CustomerService(@Qualifier("fakeDao") CustomerDao customerDao){
+    public CustomerService(@Qualifier("postgres") CustomerDao customerDao){
         this.customerDao = customerDao ;
     }
 
@@ -24,12 +24,12 @@ public class CustomerService {
         return customerDao.insertCustomer(customer);
     }
 
-    public String checkCustomer(UUID uuid){
-        return customerDao.checkCustomer(uuid);
+    public String checkCustomer(UUID customerId){
+        return customerDao.checkCustomer(customerId);
     }
 
-    public Customer getCustomerById(UUID id){
-        return customerDao.selectCustomerById(id);
+    public Customer getCustomerById(UUID customerId){
+        return customerDao.selectCustomerById(customerId);
     }
 
     public List<Customer> getAllCustomers(){

@@ -29,13 +29,13 @@ public class CustomerController {
     }
 
     @GetMapping("/{id}")
-    public String checkCustomer(@PathVariable("id") UUID id){
-        return customerService.checkCustomer(id);
+    public String checkCustomer(@PathVariable("id") UUID customerId){
+        return customerService.checkCustomer(customerId);
     }
 
     @GetMapping("/select/{id}")
-    public Customer getCustomerById(@PathVariable("id") UUID id, Customer customer){
-        return customerService.getCustomerById(id);
+    public Customer getCustomerById(@PathVariable("id") UUID customerId, Customer customer){
+        return customerService.getCustomerById(customerId);
     }
 
     @GetMapping("/getall")

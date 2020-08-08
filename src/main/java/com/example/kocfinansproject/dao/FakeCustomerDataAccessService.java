@@ -19,14 +19,14 @@ public class FakeCustomerDataAccessService implements CustomerDao {
 
     // for insert people to check they can take credit
     @Override
-    public int insertCustomer(UUID id, Customer customer) {
-        customerList.add(new Customer(id,customer.getCustomerNationalId(),customer.getCustomerName(),customer.getCustomerSurname(),customer.getMonthlyIncome(),customer.getCustomerPhone(),customer.getCreditScore()));
+    public int insertCustomer(UUID customerId, Customer customer) {
+        customerList.add(new Customer(customerId,customer.getCustomerNationalId(),customer.getCustomerName(),customer.getCustomerSurname(),customer.getMonthlyIncome(),customer.getCustomerPhone(),customer.getCreditScore()));
         return 1;
     }
 
     @Override
-    public String checkCustomer(UUID uuid) {
-        Customer customer = selectCustomerById(uuid);
+    public String checkCustomer(UUID customerId) {
+        Customer customer = selectCustomerById(customerId);
         String lastDecision = "Name of "+ customer.getCustomerName() + " and surname of "+ customer.getCustomerSurname()  ;
 
         if(customer.getCreditScore() < 500){
@@ -44,7 +44,7 @@ public class FakeCustomerDataAccessService implements CustomerDao {
     }
 
     @Override
-    public Customer selectCustomerById(UUID id) {
+    public Customer selectCustomerById(UUID customerId) {
         return customerList.get(0);
     }
 

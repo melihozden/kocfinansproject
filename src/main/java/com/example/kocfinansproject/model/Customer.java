@@ -6,7 +6,7 @@ import java.util.UUID;
 
 public class Customer {
 
-    private UUID id ;
+    private UUID customerId ;
     private String customerNationalId ;
     private String customerName;
     private String customerSurname ;
@@ -14,7 +14,7 @@ public class Customer {
     private String customerPhone ;
     private int creditScore ;
 
-    public Customer(@JsonProperty("id") UUID id,
+    public Customer(@JsonProperty("customerId") UUID customerId,
                     @JsonProperty("customerNationalId") String customerNationalId,
                     @JsonProperty("customerName") String customerName,
                     @JsonProperty("customerSurname") String customerSurname,
@@ -22,7 +22,7 @@ public class Customer {
                     @JsonProperty("customerPhone") String customerPhone,
                     @JsonProperty("creditScore") int creditScore)
                     {
-        this.id = id;
+        this.customerId = customerId;
         this.customerNationalId = customerNationalId;
         this.customerName = customerName;
         this.customerSurname = customerSurname;
@@ -32,7 +32,7 @@ public class Customer {
     }
 
     public UUID getId() {
-        return id;
+        return customerId;
     }
 
     public String getCustomerNationalId() {
