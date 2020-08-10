@@ -3,6 +3,7 @@ package com.example.kocfinansproject.dao;
 import com.example.kocfinansproject.model.Customer;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.UUID;
 
 public interface CustomerDao {
@@ -16,8 +17,7 @@ public interface CustomerDao {
 
     String checkCustomer(UUID customerId);
 
-
-    Customer selectCustomerById(UUID customerId);
+   Customer selectCustomerById(UUID customerId);
 
     List<Customer> selectAllCustomers();
 }
