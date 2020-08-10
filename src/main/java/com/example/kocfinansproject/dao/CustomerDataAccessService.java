@@ -39,17 +39,38 @@ public class CustomerDataAccessService implements CustomerDao {
     public String checkCustomer(UUID customerId) {
 
         Customer customer = selectCustomerById(customerId);
-        String lastDecision = "Name of "+ customer.getCustomerName() + " and surname of "+ customer.getCustomerSurname()  ;
+        String lastDecision = "Dear " + customer.getCustomerName() + " " + customer.getCustomerSurname()  ;
+        String sql = "INSERT INTO application(customerid,customernationalid,transferedmoney) VALUES (?,?,?)";
 
+        // no insert
         if(customer.getCreditScore() < 500){
             return lastDecision + " your credit demand has been refused.";
         }
         else if(customer.getCreditScore() >= 500 && customer.getCreditScore() < 1000 && customer.getMonthlyIncome() < 5000){
+            // insert 10000₺ to application table
+
+
+            jdbcTemplate.update(
+                    sql,
+                    customerId,
+                    customer.getCustomerNationalId(),
+                    1000);
+
             return lastDecision + " your credit has been evaluated and transfered 10000₺ to your account";
         }
+
         else if(customer.getCreditScore() >= 1000){
+
+            // insert money which calculated to application table
+            jdbcTemplate.update(
+                    sql,
+                    customerId,
+                    customer.getCustomerNationalId(),
+                    customer.getMonthlyIncome() * KREDI_LIMIT_CARPANI);
+
             return lastDecision + " your credit has been evaluated and transfered " + customer.getMonthlyIncome() * KREDI_LIMIT_CARPANI + " to your account";
         }
+        // no logic for customer creditScore >=500 && <1000 && monthlyIncome > 5000
         else{
             return "Unknown Error";
         }

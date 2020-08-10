@@ -4,6 +4,7 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 
 import java.util.UUID;
 
+// Customer model and attributes.
 public class Customer {
 
     private UUID customerId ;

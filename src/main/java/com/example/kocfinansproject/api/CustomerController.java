@@ -28,29 +28,22 @@ public class CustomerController {
         return "Customer Added" ;
     }
 
+    // using GET request with id is not convenient.
+    // checking the customer conditions and save to database.
     @GetMapping("{id}")
     public String checkCustomer(@PathVariable("id") UUID customerId){
         return customerService.checkCustomer(customerId);
     }
 
+    // select a one customer by customer's id.
     @GetMapping("select/{id}")
     public Customer getCustomerById(@PathVariable("id") UUID customerId){
         return customerService.getCustomerById(customerId);
     }
 
+    // get all customers.
     @GetMapping("/getall")
     public List<Customer> getAllCustomers(){
         return customerService.getAllCustomers();
     }
-
-    // to check customer can take credit
-    // checking credit is get request
-    //@GetMapping
-   /* public boolean checkCustomer(Customer customer){
-        return true ;
-    }
-    */
-
-
-
 }
