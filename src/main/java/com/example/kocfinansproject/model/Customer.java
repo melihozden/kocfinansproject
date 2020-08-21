@@ -13,7 +13,7 @@ public class Customer {
     private String customerSurname ;
     private int monthlyIncome;
     private String customerPhone ;
-    private int creditScore ;
+    private int creditScore ;  // presumed this data comes from another service. (customer credit score calculation)
 
     public Customer(@JsonProperty("customerId") UUID customerId,
                     @JsonProperty("customerNationalId") String customerNationalId,

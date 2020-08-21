@@ -54,7 +54,7 @@ public class CustomerDataAccessService implements CustomerDao {
                     sql,
                     customerId,
                     customer.getCustomerNationalId(),
-                    1000);
+                    10000);
 
             return lastDecision + " your credit has been evaluated and transfered 10000₺ to your account";
         }
