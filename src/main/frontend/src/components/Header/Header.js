@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../Header/Header.css'
+import Logo from '../../img/logo.png';
 
 class Header extends Component {
     constructor(props) {
@@ -9,7 +10,7 @@ class Header extends Component {
     render() { 
         return ( 
             <div className="header">
-                <img src="https://mobilweb.kocfinans.com.tr/images/logo.png" alt=""/>
+                <img src={Logo} alt=""/>
             </div>
          );
     }
