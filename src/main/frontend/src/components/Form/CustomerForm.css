@@ -43,3 +43,8 @@
 .bold{
     font-weight: 700 ;
 }
+.table-div{
+    margin: auto;
+    margin-top : 50px;
+    width: 75%;
+}

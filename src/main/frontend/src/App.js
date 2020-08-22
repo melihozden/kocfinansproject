@@ -1,6 +1,5 @@
 import React from 'react';
 import './App.css';
-import Form from './components/Form/CustomerForm';
 import Header from './components/Header/Header';
 
 import MainPage from './pages/MainPage';

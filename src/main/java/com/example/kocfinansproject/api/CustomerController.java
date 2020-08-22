@@ -10,6 +10,7 @@ import java.util.UUID;
 
 @RequestMapping("api/customer")
 @RestController
+@CrossOrigin("*")
 public class CustomerController {
 
 

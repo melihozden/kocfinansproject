@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import '../Form/CustomerForm.css';
+import CustomerDataService from '../../service/CustomerDataService'
 
 import {Button, Form } from 'semantic-ui-react'
 
@@ -24,7 +25,17 @@ class CustomerForm extends Component{
      }
 
      handleSubmit = (e) =>{
-      console.log({...this.state})
+      CustomerDataService.addNewCustomer(
+         this.state.customerNationalId,
+         this.state.customerName,
+         this.state.customerSurname,
+         this.state.customerPhone,
+         this.state.monthlyIncome,
+         this.state.creditScore
+         )
+         .then((res) =>{
+            console.log(res)
+         })
       e.preventDefault();
      }
 
