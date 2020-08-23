@@ -2,7 +2,7 @@
     <img align="center" src="https://mobilweb.kocfinans.com.tr/images/logo.png" />
 </div>
 
-### Kocfinans Hiring Project
+## Kocfinans Hiring Project
 
 <div style="margin:50px">
     <img align="center" src="https://www.docker.com/sites/default/files/d8/2019-07/vertical-logo-monochromatic.png" width=100px  />
@@ -17,5 +17,13 @@
 | **GET** | **/api/customer/getall** | fetch all customers 
 | **GET** | **/api/customer/select/{id}** | fetch a specific customer data 
 | **GET** | **/api/customer/{id}** | fetch a specific customer and transfer money or reject customer.
+
+## Frontend View
+<hr/>
+### Customer Adding UI
+<img align="center" src="./src/main/frontend/src/img/addCustomer.png" width="400" height="500"/>
+
+### Customer Adding UI
+<img align="center" src="./src/main/frontend/src/img/searchCustomer.png"/>
 
 This project made with :heart: by **Melih Özden**
