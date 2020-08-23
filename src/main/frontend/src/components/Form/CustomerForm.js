@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../Form/CustomerForm.css';
 import CustomerDataService from '../../service/CustomerDataService'
 
-import {Button, Form } from 'semantic-ui-react'
+import {Button, Form, Message } from 'semantic-ui-react'
 
 class CustomerForm extends Component{
     constructor(props) {
@@ -15,6 +15,7 @@ class CustomerForm extends Component{
             monthlyIncome: '',
             customerPhone: '',
             creditScore: '',
+            resultMessage:'',
         }
      };
 
@@ -34,9 +35,17 @@ class CustomerForm extends Component{
          this.state.creditScore
          )
          .then((res) =>{
-            console.log(res)
+            this.setState({
+               resultMessage: res.data 
+            })
          })
       e.preventDefault();
+     }
+
+     componentDidUpdate(){
+        setTimeout(() => {
+            this.setState({resultMessage:''})
+        }, 10000);
      }
 
      render() {
@@ -46,27 +55,32 @@ class CustomerForm extends Component{
               <p className="title">Customer Adding</p>
               <Form onSubmit={this.handleSubmit}>
                <Form.Field>
-                  <input name="customerName" placeholder='First Name' className="name-input mt" value={this.state.customerName} onChange={this.handleChange} />
+                  <input required name="customerName" placeholder='First Name' className="name-input mt" value={this.state.customerName} onChange={this.handleChange} />
                </Form.Field>
                <Form.Field>
-                  <input name="customerSurname" placeholder='Last Name' className="name-input" value={this.state.customerSurname}  onChange={this.handleChange}/>
+                  <input required name="customerSurname" placeholder='Last Name' className="name-input" value={this.state.customerSurname}  onChange={this.handleChange}/>
                </Form.Field>
                <Form.Field>
-                  <input name="customerNationalId" placeholder='National ID' className="name-input" value={this.state.customerNationalId} onChange={this.handleChange} />
+                  <input required  name="customerNationalId" placeholder='National ID' className="name-input" value={this.state.customerNationalId} onChange={this.handleChange} />
                </Form.Field>
                <Form.Field>
-                  <input name="customerPhone" placeholder='Phone Number' type="number" className="name-input" value={this.state.customerPhone} onChange={this.handleChange} />
+                  <input required name="customerPhone" placeholder='Phone Number' type="number" className="name-input" value={this.state.customerPhone} onChange={this.handleChange} />
                </Form.Field>
                <Form.Field>
-                  <input name="monthlyIncome" placeholder='Monthly Income' type="number" className="name-input"  value={this.state.monthlyIncome} onChange={this.handleChange}/>
+                  <input required name="monthlyIncome" placeholder='Monthly Income' type="number" className="name-input"  value={this.state.monthlyIncome} onChange={this.handleChange}/>
                </Form.Field>
                 <Form.Field>
-                  <input name="creditScore" placeholder='Credit Score' type="number" className="name-input" value={this.state.creditScore} onChange={this.handleChange} />
+                  <input required name="creditScore" placeholder='Credit Score' type="number" className="name-input" value={this.state.creditScore} onChange={this.handleChange} />
                </Form.Field>
                <Button type='submit' color="green" className="add-button">Add Customer</Button>
                <Button color="brown" className="search-button"><a href="/search" className="anchor">Search Customer</a></Button>
             </Form>
              </div>
+            {  this.state.resultMessage &&
+               <div className="resultMessage">
+                  <Message color="green">{this.state.resultMessage}</Message>
+               </div>
+            }
                <h4 className="footer">This project made with ❤️ by <span className="bold">Melih Özden</span></h4>
            </div>
         );
