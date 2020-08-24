@@ -20,10 +20,11 @@
 
 ## Frontend View
 <hr/>
+
 ### Customer Adding UI
 <img align="center" src="./src/main/frontend/src/img/addCustomer.png" width="400" height="500"/>
 
-### Customer Adding UI
+### Customer Fetching UI
 <img align="center" src="./src/main/frontend/src/img/searchCustomer.png"/>
 
 This project made with :heart: by **Melih Özden**
